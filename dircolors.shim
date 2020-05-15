@@ -1,0 +1,26 @@
+#!/bin/sh
+# shellcheck disable=SC2086
+#
+# our script relies on GNU awk's --non-decimal-data extension, but some non-GNU
+# awks are compiled with this extension like the one included with busybox, so
+# we don't necessarily have to fail.
+
+set -e
+
+if command -v gawk >/dev/null; then
+    awk='gawk -n'
+else
+    awk='awk'
+fi
+
+: "${HEX2RGB_AWK_SRC:=$(cat hex2rgb.awk)}"
+
+$awk "$HEX2RGB_AWK_SRC" "$1" > /tmp/DIR_COLORS.generated
+
+if echo "$SHELL" | grep -qE 'csh$'; then
+    flag='-c'
+else
+    flag='-b'
+fi
+
+dircolors "$flag" /tmp/DIR_COLORS.generated
