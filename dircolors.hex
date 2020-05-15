@@ -1,14 +1,10 @@
 #!/bin/sh
 # vim: filetype=sh
-#
-# our script relies on GNU awk's --non-decimal-data extension, but some non-GNU
-# awks are compiled with this extension like the one included with busybox, so
-# we don't necessarily have to fail.
 
 set -e
 
 if command -v gawk >/dev/null; then
-    awk='gawk -n'
+    awk='gawk --non-decimal-data'
 else
     awk='awk'
 fi
