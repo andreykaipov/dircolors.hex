@@ -6,10 +6,11 @@ GNU core utility, allowing users to set up their terminal for colored output
 from `ls` or any other external program that uses the `LS_COLORS` environment
 variable to color output.
 
-Specification is the same as https://linux.die.net/man/5/dir_colors, but with
-the ability to specify hex color codes for the foreground and backgrounds of
-files. This is easier understood with an example. To highlight executables with
-a vampirish black foreground and a lime green background, instead of writing:
+Specification is the same as a traditional [`dir_colors` configuration
+file](https://linux.die.net/man/5/dir_colors), but with the ability to specify
+hex color codes for the foreground and backgrounds of files. This is easier
+understood with an example. To highlight executables with a vampirish black
+foreground and a lime green background, instead of writing:
 
 ```dircolors
 EXEC 38;2;8;8;8;48;2;50;205;50
