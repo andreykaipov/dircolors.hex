@@ -1,5 +1,5 @@
 #!/bin/sh
-# shellcheck disable=SC2086
+# vim: filetype=sh
 #
 # our script relies on GNU awk's --non-decimal-data extension, but some non-GNU
 # awks are compiled with this extension like the one included with busybox, so
@@ -15,12 +15,6 @@ fi
 
 : "${HEX2RGB_AWK_SRC:=$(cat hex2rgb.awk)}"
 
-$awk "$HEX2RGB_AWK_SRC" "$1" > /tmp/DIR_COLORS.generated
+$awk "$HEX2RGB_AWK_SRC" "$1" > /tmp/dir_colors.generated
 
-if echo "$SHELL" | grep -qE 'csh$'; then
-    flag='-c'
-else
-    flag='-b'
-fi
-
-dircolors "$flag" /tmp/DIR_COLORS.generated
+dircolors /tmp/dir_colors.generated
