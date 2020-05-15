@@ -1,0 +1,14 @@
+# vim: ft=dircolors
+# Configuration file for dircolors.hex
+
+# we can also still use traditional sequences
+*dir_colors 1;4;36
+
+# magenta foreground
+*test1   #f0f
+
+# magenta foreground with a dark green background because we hate ourselves
+*test2   #f0f #060
+
+# white foreground with an orange background
+*test3   #fff #f60
