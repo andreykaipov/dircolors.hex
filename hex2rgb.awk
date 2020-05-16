@@ -8,7 +8,7 @@ $2 ~ /^#/ {
 
 # maps #RRGGBB to rr;gg;bb
 # where RR is the hex representation of dec rr, etc.
-function hex2rgb(color) {
+function hex2rgb(color,         hex, r, g, b) {
     hex = substr(color, 2)
 
     if (match(hex, /[a-fA-F0-9]+/) == 0) {
@@ -33,5 +33,17 @@ function hex2rgb(color) {
         exit 2
     }
 
-    return sprintf("%d;%d;%d", "0x"r, "0x"g, "0x"b)
+    return hex2dec(r) ";" hex2dec(g) ";" hex2dec(b)
+}
+
+# takes hex string and returns dec int
+function hex2dec(hex,           dec) {
+    dec = 0
+    hex = tolower(hex)
+    for (i = 1; i <= length(hex); i++) {
+        c = substr(hex, i, 1)
+        k = index("123456789abcdef", c)
+        dec = dec * 16 + k
+    }
+    return dec
 }
