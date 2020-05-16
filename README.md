@@ -8,7 +8,7 @@ variable to color output.
 
 Specification is the same as a traditional [`dir_colors` configuration
 file](https://linux.die.net/man/5/dir_colors), but with the ability to specify
-hex color codes for the foreground and backgrounds of files. This is easier
+hex color codes for the foregrounds and backgrounds of files. This is easier
 understood with an example. To highlight executables with a vampirish black
 foreground and a lime green background, instead of writing:
 
