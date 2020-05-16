@@ -33,10 +33,7 @@ todo
 
 ## dependencies
 
-- A POSIX-compliant shell
-
-- GNU AWK or an AWK compiled with the `non-decimal-data` extension (e.g. like
-  the AWK included with BusyBox)
+- AWK
 
 ## why?
 

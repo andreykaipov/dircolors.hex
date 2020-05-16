@@ -3,14 +3,6 @@
 
 set -e
 
-if command -v gawk >/dev/null; then
-    awk='gawk --non-decimal-data'
-else
-    awk='awk'
-fi
-
 : "${HEX2RGB_AWK_SRC:=$(cat hex2rgb.awk)}"
 
-$awk "$HEX2RGB_AWK_SRC" "$1" > /tmp/dir_colors.generated
-
-dircolors /tmp/dir_colors.generated
+awk "$HEX2RGB_AWK_SRC" "$1" | dircolors -

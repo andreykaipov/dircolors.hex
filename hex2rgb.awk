@@ -8,7 +8,7 @@ $2 ~ /^#/ {
 
 # maps #RRGGBB to rr;gg;bb
 # where RR is the hex representation of dec rr, etc.
-function hex2rgb(color,         hex, r, g, b) {
+function hex2rgb(color,         hex, x, xlen, r, g, b) {
     hex = substr(color, 2)
 
     if (match(hex, /[a-fA-F0-9]+/) == 0) {
@@ -17,13 +17,13 @@ function hex2rgb(color,         hex, r, g, b) {
         exit 2
     }
 
-    split(hex, x, "")
+    xlen = split(hex, x, "")
 
-    if (length(x) == 3) {
+    if (xlen == 3) {
         r = x[1]x[1]
         g = x[2]x[2]
         b = x[3]x[3]
-    } else if (length(x) == 6) {
+    } else if (xlen == 6) {
         r = x[1]x[2]
         g = x[3]x[4]
         b = x[5]x[6]
