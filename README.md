@@ -29,7 +29,16 @@ color](https://en.wikipedia.org/wiki/ANSI_escape_code#24-bit).
 
 ## how do i use it
 
-todo
+The bundled binary script is available under [bin/dircolors.hex](./bin/dircolors.hex). Don't use the scripts in the root of this repository.
+
+For example:
+
+```console
+$ echo 'EXEC #080808 #32CD32' > /tmp/dircolors
+$ curl -s https://raw.githubusercontent.com/andreykaipov/dircolors.hex/master/bin/dircolors.hex | sh -s /tmp/dircolors
+LS_COLORS='ex=38;2;8;8;8;48;2;50;205;50:';
+export LS_COLORS
+```
 
 ## dependencies
 
